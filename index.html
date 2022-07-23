@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Night-In</title>
 </head>
+
 <body>
     <h1>INtertain</h1>
-<button id="boardGameSearch">GET BOARD GAME</button>
 
-<div id="game"></div>
+    <!-- categories -->
+    <label for="category">Choose a category:</label>
+    <div>
+        <select name="category" id="categories">
+            <option value="American History">History</option>
+            <option value="Family Game">Family</option>
+            <option value="Horror">Horror</option>
+            <option value="Mystery">Mystery</option>
+        </select>
+    </div>
+    <button id="boardGameSearch">GET BOARD GAME</button>
+
+    <div id="game"></div>
 </body>
 <script src="./script.js"></script>
+
 </html>
+
+<!-- history - has to be verbatim (Alternate History or American History)
+family - Family Game 
+horror/thriller - just Horror
+mystery  - only 15 results
+sci-fi - Sci-Fi
+science - Mad Scientist - only 5 results - will redirect to family genre 
+cooking - Food
+biographical - could redirect to alternate history 
+travel  - Travel
+Adventure 
+if genre === science, then board game api call is under family
+-->
