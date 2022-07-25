@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Night-In</title>
     <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
+
 <body>
   <header>
   <nav>
@@ -17,6 +19,7 @@
   </header>
   <main>
     <h1>INtertain</h1>
+
     <section class="container">
       <h3>SELECT A KEYWORD TO GENERATE A BOOK, BOARD GAME, AND MOVIE FOR YOUR COZY NIGHT IN!</h3> 
       <input id="searchBox" name="category" type="search" placeholder="Search" onkeyup="selectCategory"></input>
@@ -24,5 +27,43 @@
       <button>Feeling Lucky</button>
     </section>
   </main>
+
+    <!-- categories -->
+    <label for="category">Choose a category:</label>
+    <div>
+        <select name="category" id="categories">
+            <option value="" >Choose a category:</option>
+            <option value="history">History</option>
+            <option value="Family Game">Family</option>
+            <option value="Horror">Horror</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Science">Science</option>
+            <option value="Food">Food</option>
+            <option value="Biographical">Biographical</option>
+            <option value="Travel">Travel</option>
+            <option value="Adventure">Adventure</option>
+        </select>
+    </div>
+    <button id="boardGameSearch">GET BOARD GAME</button>
+    <button id="adultRated">FEELING LUCKY?</button>
+
+    <div id="game"></div>
+
 </body>
+<script src="./script.js"></script>
+
 </html>
+
+<!-- history - has to be verbatim (Alternate History or American History)
+family - Family Game 
+horror/thriller - just Horror
+mystery  - only 15 results
+sci-fi - Sci-Fi
+science - Mad Scientist - only 5 results - will redirect to family genre 
+cooking - Food
+biographical - could redirect to alternate history 
+travel  - Travel
+Adventure 
+if genre === science, then board game api call is under family
+-->
