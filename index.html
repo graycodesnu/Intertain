@@ -6,10 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Night-In</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 
 <body>
+  <header>
+  <nav>
+    <a href="#">Search</a>
+    <a href="#">Favorites</a>
+    <a href="#">About Us</a>
+  </nav>
+  </header>
+  <main>
     <h1>INtertain</h1>
+
+    <section class="container">
+      <h3>SELECT A KEYWORD TO GENERATE A BOOK, BOARD GAME, AND MOVIE FOR YOUR COZY NIGHT IN!</h3> 
+      <input id="searchBox" name="category" type="search" placeholder="Search" onkeyup="selectCategory"></input>
+      <button href="./results.html">Search</button>
+      <button>Feeling Lucky</button>
+    </section>
+  </main>
 
     <!-- categories -->
     <label for="category">Choose a category:</label>
@@ -32,6 +49,7 @@
     <button id="adultRated">FEELING LUCKY?</button>
 
     <div id="game"></div>
+
 </body>
 <script src="./script.js"></script>
 
