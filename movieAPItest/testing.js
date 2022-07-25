@@ -58,7 +58,7 @@ fetch(url)
       var newBook = data.works[i];
 
       title.textContent = newBook.title;
-      cover.src = coverPath.concat(newBook.cover_id);
+      cover.src = coverPath.concat(newBook.cover_id,'-L.jpg');
       cover.setAttribute("style", "width: 25%");
 
       book.appendChild(title);
