@@ -9,6 +9,13 @@ var family = document.getElementById('categories').value = "Family Game"
 var history = document.getElementById('categories').value = "history"
 var horror = document.getElementById('categories').value = "Horror"
 var mystery = document.getElementById('categories').value = "Mystery"
+var sciFi = document.getElementById('categories').value = "Sci-Fi"
+var science = document.getElementById('categories').value = "Science"
+var food = document.getElementById('categories').value = "Food"
+var biographical = document.getElementById('categories').value = "Biographical"
+var travel = document.getElementById('categories').value = "Travel"
+var adventure = document.getElementById('categories').value = "Adventure"
+
 
 
     
