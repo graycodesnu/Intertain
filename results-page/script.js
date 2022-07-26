@@ -131,10 +131,20 @@ fetch(gameURL)
         game.appendChild(description)
    // SETTING GAME TO LOCAL STORAGE
              
-            localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
             
-        
-    })
+            function fillHeartGame(){
+              console.log("HEART")
+              var gameHeart = document.getElementById("heartBtn")
+              console.log(gameHeart)
+              gameHeart.classList.remove("fa-regular")
+              gameHeart.classList.add("fa-solid")
+              localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
+            }
+            heartBtn.addEventListener("click",fillHeartGame)
+            
+    },
+    )
+    // fillHeartGame()
 }
 
 // temporary for testing within results.html only
@@ -145,4 +155,5 @@ if(localStorage.getItem('category')){
 getMovieOptions()
 getBookOptions()
 getGameOptions()
+
 
