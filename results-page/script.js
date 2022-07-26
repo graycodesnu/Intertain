@@ -105,9 +105,9 @@ fetch(url)
         bookHeart.classList.remove("fa-regular")
         bookHeart.classList.add("fa-solid")
         // SETTING book TO LOCAL STORAGE
-        localStorage.setItem("BOOK",[newBook.title,newBook.cover_id])
+        localStorage.setItem("BOOK",[newBook.title,coverPath.concat(newBook.cover_id,'-L.jpg')])
       }
-      bookHeart.addEventListener("click",fillHeartBook)
+      book.addEventListener("click",fillHeartBook)
     
   });
 }
