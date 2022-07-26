@@ -34,7 +34,7 @@ function getMovieOptions(){
       var randomMovie = Math.floor(Math.random()*20)
       // console.log(randomMovie)
       
-        var title = document.createElement("h2");
+        var title = document.createElement("h4");
         var poster = document.createElement("img");
         var description = document.createElement("p");
 
@@ -48,11 +48,22 @@ function getMovieOptions(){
         zone.appendChild(title);
         zone.appendChild(poster);
         zone.appendChild(description);
-// SETTING MOVE TO LOCAL STORAGE
+        
+  function fillHeartMovie(){
+        console.log("HEART MOVIE")
+        var movieHeart = document.getElementById("movieHeart")
+        console.log(movieHeart)
+        movieHeart.classList.remove("fa-regular")
+        movieHeart.classList.add("fa-solid")
+        // SETTING MOVE TO LOCAL STORAGE
       localStorage.setItem("MOVIE",[currentMovie.title,currentMovie.poster_path])
-
+    
+      }
+      movieHeart.addEventListener("click",fillHeartMovie)
+    
+  });
       
-    })
+    
 }
 
 
@@ -75,7 +86,7 @@ fetch(url)
 
     var randomBook = Math.floor(Math.random()*12)
 
-      var title = document.createElement("h2");
+      var title = document.createElement("h4");
       var cover = document.createElement("img");
 
       var newBook = data.works[randomBook];
@@ -87,9 +98,17 @@ fetch(url)
       book.appendChild(title);
       book.appendChild(cover);
 
-      // SETTING book TO LOCAL STORAGE
-      localStorage.setItem("BOOK",[newBook.title,newBook.cover_id])
-
+      function fillHeartBook(){
+        console.log("HEART BOOK")
+        var bookHeart = document.getElementById("bookHeart")
+        console.log(bookHeart)
+        bookHeart.classList.remove("fa-regular")
+        bookHeart.classList.add("fa-solid")
+        // SETTING book TO LOCAL STORAGE
+        localStorage.setItem("BOOK",[newBook.title,coverPath.concat(newBook.cover_id,'-L.jpg')])
+      }
+      book.addEventListener("click",fillHeartBook)
+    
   });
 }
 
@@ -115,7 +134,7 @@ fetch(gameURL)
         }
         var randomGame = Math.floor(Math.random()*randomGame)
         
-        var title = document.createElement('h2')
+        var title = document.createElement('h4')
         var poster = document.createElement('img')
         var description = document.createElement('p')
 
@@ -128,13 +147,23 @@ fetch(gameURL)
 
         game.appendChild(title)
         game.appendChild(poster)
-        game.appendChild(description)
+        // game.appendChild(description)
    // SETTING GAME TO LOCAL STORAGE
              
-            localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
             
-        
-    })
+            function fillHeartGame(){
+              console.log("HEART")
+              var gameHeart = document.getElementById("heartBtn")
+              console.log(gameHeart)
+              gameHeart.classList.remove("fa-regular")
+              gameHeart.classList.add("fa-solid")
+              localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
+            }
+            heartBtn.addEventListener("click",fillHeartGame)
+            
+    },
+    )
+    // fillHeartGame()
 }
 
 // temporary for testing within results.html only
@@ -145,4 +174,5 @@ if(localStorage.getItem('category')){
 getMovieOptions()
 getBookOptions()
 getGameOptions()
+
 
