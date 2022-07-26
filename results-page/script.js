@@ -48,11 +48,22 @@ function getMovieOptions(){
         zone.appendChild(title);
         zone.appendChild(poster);
         zone.appendChild(description);
-// SETTING MOVE TO LOCAL STORAGE
+        
+  function fillHeartMovie(){
+        console.log("HEART MOVIE")
+        var movieHeart = document.getElementById("movieHeart")
+        console.log(movieHeart)
+        movieHeart.classList.remove("fa-regular")
+        movieHeart.classList.add("fa-solid")
+        // SETTING MOVE TO LOCAL STORAGE
       localStorage.setItem("MOVIE",[currentMovie.title,currentMovie.poster_path])
-
+    
+      }
+      movieHeart.addEventListener("click",fillHeartMovie)
+    
+  });
       
-    })
+    
 }
 
 
@@ -96,7 +107,7 @@ fetch(url)
         // SETTING book TO LOCAL STORAGE
         localStorage.setItem("BOOK",[newBook.title,newBook.cover_id])
       }
-      heartBtn.addEventListener("click",fillHeartBook)
+      bookHeart.addEventListener("click",fillHeartBook)
     
   });
 }
