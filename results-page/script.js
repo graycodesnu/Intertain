@@ -1,3 +1,13 @@
+
+var zone = document.querySelector("#movies")
+var outlineHeart = document.querySelector(".outlineHeart")
+var heartBtn = document.querySelector("#heartBtn")
+
+
+
+
+// movieGenreAPIURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=e346bd747060c7a18ce3926d8f5571b9&language=en-US"
+
 var categories = [mystery = {m:'9648', b:'mystery', g:'BBZb2d0ePt'},
                   horror = {m:'27', b:'horror', g:'cAIkk5aLdQ'},
                   family = {m:'10751', b:'young_adult_fiction', g:'7rV11PKqME'},
@@ -12,6 +22,7 @@ function getMovieOptions(){
   var movieURL = "https://api.themoviedb.org/3/discover/movie?api_key=3b1bc545c2aff630803e3dfd3ac89e2e&with_genres=<genre>&page=1"
   var posterPath = "https://image.tmdb.org/t/p/original/"
   movieURL = movieURL.replace('<genre>',genre.m)
+
 
   // Movie API (Aumio)
   fetch(movieURL)
@@ -37,9 +48,13 @@ function getMovieOptions(){
         zone.appendChild(title);
         zone.appendChild(poster);
         zone.appendChild(description);
+// SETTING MOVE TO LOCAL STORAGE
+      localStorage.setItem("MOVIE",[currentMovie.title,currentMovie.poster_path])
+
       
     })
 }
+
 
 function getBookOptions(){
 // Book API (Grayson)
@@ -71,7 +86,10 @@ fetch(url)
 
       book.appendChild(title);
       book.appendChild(cover);
-    
+
+      // SETTING book TO LOCAL STORAGE
+      localStorage.setItem("BOOK",[newBook.title,newBook.cover_id])
+
   });
 }
 
@@ -90,7 +108,7 @@ fetch(gameURL)
     })
     .then(function (data) {
         console.log(data)
-        
+
         var randomGame = 25
         if(genre = mystery){
           randomGame -=10
@@ -111,6 +129,10 @@ fetch(gameURL)
         game.appendChild(title)
         game.appendChild(poster)
         game.appendChild(description)
+   // SETTING GAME TO LOCAL STORAGE
+             
+            localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
+            
         
     })
 }
@@ -123,3 +145,4 @@ if(localStorage.getItem('category')){
 getMovieOptions()
 getBookOptions()
 getGameOptions()
+
