@@ -116,6 +116,7 @@ fetch(gameURL)
             game.appendChild(description)
 
              // SETTING GAME TO LOCAL STORAGE
+             
             localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
             
         
