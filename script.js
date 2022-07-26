@@ -1,4 +1,5 @@
 var zone = document.querySelector("#movies")
+var select = document.querySelector("#select")
 // movieGenreAPIURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=e346bd747060c7a18ce3926d8f5571b9&language=en-US"
 
 var categories = [mystery = {m:'9648', b:'mystery', g:'BBZb2d0ePt'},
@@ -7,10 +8,12 @@ var categories = [mystery = {m:'9648', b:'mystery', g:'BBZb2d0ePt'},
                   sciFi = {m:'878', b:'science_fiction', g:'3B3QpKvXD3'},
                   adventure = {m:'12', b:'fantasy', g:'KUBCKBkGxV'}]
 
-var genre = categories[1];
+var genre = categories[0];
 
 var movieURL = "https://api.themoviedb.org/3/discover/movie?api_key=3b1bc545c2aff630803e3dfd3ac89e2e&with_genres=<genre>&page=1"
 var posterPath = "https://image.tmdb.org/t/p/original/"
+
+function getMovieOptions(){
 
 movieURL = movieURL.replace('<genre>',genre.m)
 
@@ -40,7 +43,9 @@ fetch(movieURL)
       zone.appendChild(description);
     
   })
+}
 
+function getBookOptions(){
 // Book API (Grayson)
 // https://openlibrary.org/dev/docs/api/covers
 
@@ -72,6 +77,9 @@ fetch(url)
       book.appendChild(cover);
     
   });
+}
+
+function getGameOptions(){
   
 // gameAPI (Holly)
 
@@ -87,21 +95,33 @@ fetch(gameURL)
     .then(function (data) {
         console.log(data)
         
-        var randomGame = Math.floor(Math.random()*25)
+        var randomGame = 25
+        if(genre = mystery){
+          randomGame -=10
+        }
+        var randomGame = Math.floor(Math.random()*randomGame)
+        
+        var title = document.createElement('h2')
+        var poster = document.createElement('img')
+        var description = document.createElement('p')
 
-            var title = document.createElement('h2')
-            var poster = document.createElement('img')
-            var description = document.createElement('p')
+        var currentGame = data.games[randomGame]
+        console.log(currentGame)
+        title.textContent = currentGame.name
+        poster.src = (currentGame.image_url)
+        poster.setAttribute('style','width:25%')
+        description.textContent = currentGame.description
 
-            var currentGame = data.games[randomGame]
-            console.log(currentGame)
-            title.textContent = currentGame.name
-            poster.src = (currentGame.image_url)
-            poster.setAttribute('style','width:25%')
-            description.textContent = currentGame.description
-
-            game.appendChild(title)
-            game.appendChild(poster)
-            game.appendChild(description)
+        game.appendChild(title)
+        game.appendChild(poster)
+        game.appendChild(description)
         
     })
+}
+if(localStorage.getItem('category')){
+  genre = categories[localStorage.getItem('category')]
+}
+
+getMovieOptions()
+getBookOptions()
+getGameOptions()
