@@ -1,66 +1,99 @@
-var game = document.querySelector("#game")
-var gameSearchbtn = document.querySelector("#boardGameSearch")
-var categoriesDD = document.querySelector("#categories")
-var adultRated = document.querySelector("#adultRated")
+var zone = document.querySelector("#movies")
+// movieGenreAPIURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=e346bd747060c7a18ce3926d8f5571b9&language=en-US"
 
+var categories = [mystery = {m:'9648', b:'mystery', g:'BBZb2d0ePt'},
+                  horror = {m:'27', b:'horror', g:'cAIkk5aLdQ'},
+                  family = {m:'10751', b:'young_adult_fiction', g:'7rV11PKqME'},
+                  sciFi = {m:'878', b:'science_fiction', g:'3B3QpKvXD3'},
+                  adventure = {m:'12', b:'fantasy', g:'KUBCKBkGxV'}]
 
-// grabbing drop down values from html
-var family = document.getElementById('categories').value = "Family Game"
-var history = document.getElementById('categories').value = "history"
-var horror = document.getElementById('categories').value = "Horror"
-var mystery = document.getElementById('categories').value = "Mystery"
-var sciFi = document.getElementById('categories').value = "Sci-Fi"
-var science = document.getElementById('categories').value = "Science"
-var food = document.getElementById('categories').value = "Food"
-var biographical = document.getElementById('categories').value = "Biographical"
-var travel = document.getElementById('categories').value = "Travel"
-var adventure = document.getElementById('categories').value = "Adventure"
+var genre = categories[1];
 
+var movieURL = "https://api.themoviedb.org/3/discover/movie?api_key=3b1bc545c2aff630803e3dfd3ac89e2e&with_genres=<genre>&page=1"
+var posterPath = "https://image.tmdb.org/t/p/original/"
 
-// todo history and biographical isnt working
+movieURL = movieURL.replace('<genre>',genre.m)
+
+// Movie API (Aumio)
+fetch(movieURL)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    var randomMovie = Math.floor(Math.random()*20)
+    // console.log(randomMovie)
     
-function getGame() {
-// &random=true
+      var title = document.createElement("h2");
+      var poster = document.createElement("img");
+      var description = document.createElement("p");
 
-    if(mystery === categoriesDD.value) {
-        var requestUrl = "https://api.boardgameatlas.com/api/search?categories=BBZb2d0ePt&client_id=j93pbu8wKv"
-        console.log("SCOOB")
-    } else if(horror === categoriesDD.value) {
-        var requestUrl = "https://api.boardgameatlas.com/api/search?categories=cAIkk5aLdQ&client_id=j93pbu8wKv"
-        console.log("AHHHHHH")
-        // todo history isnt working
-    }else if(family === categoriesDD.value) {
-        console.log("FAM TIME g rated only")
-        var requestUrl = "https://api.boardgameatlas.com/api/search?categories=7rV11PKqME&client_id=j93pbu8wKv"
-    } else if(sciFi === categoriesDD.value) {
-        console.log("sci fi aliens")
-        var requestUrl = "https://api.boardgameatlas.com/api/search?categories=3B3QpKvXD3&client_id=j93pbu8wKv"
-    } else if(adventure === categoriesDD.value) {
-        console.log("travel")
-        var requestUrl = "https://api.boardgameatlas.com/api/search?categories=KUBCKBkGxV&client_id=j93pbu8wKv"
-    } 
-   
-    // var apiKey = "j93pbu8wKv"
-   
+      var currentMovie = data.results[randomMovie];
+
+      title.textContent = currentMovie.title;
+      poster.src = posterPath.concat(currentMovie.poster_path);
+      poster.setAttribute("style", "width:25%");
+      description.textContent = currentMovie.overview;
+
+      zone.appendChild(title);
+      zone.appendChild(poster);
+      zone.appendChild(description);
     
-    fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
+  })
+
+// Book API (Grayson)
+// https://openlibrary.org/dev/docs/api/covers
+
+var book = document.querySelector("#books");
+var url = "http://openlibrary.org/subjects/genre.json";
+var coverPath = "https://covers.openlibrary.org/b/id/";
+
+url = url.replace('genre',genre.b)
+
+fetch(url)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+
+    var randomBook = Math.floor(Math.random()*12)
+
+      var title = document.createElement("h2");
+      var cover = document.createElement("img");
+
+      var newBook = data.works[randomBook];
+
+      title.textContent = newBook.title;
+      cover.src = coverPath.concat(newBook.cover_id,'-L.jpg');
+      cover.setAttribute("style", "width: 25%");
+
+      book.appendChild(title);
+      book.appendChild(cover);
+    
+  });
+  
+// gameAPI (Holly)
+
+var game = document.querySelector("#boardgames")
+var gameURL = "https://api.boardgameatlas.com/api/search?categories=genre&client_id=j93pbu8wKv"
+
+gameURL = gameURL.replace('genre',genre.g)
+
+fetch(gameURL)
+    .then(function (response) {
+        return response.json()
     })
     .then(function (data) {
         console.log(data)
+        
+        var randomGame = Math.floor(Math.random()*25)
 
-        console.log('hi!')
-        console.log(Object)
-
-    // todo need to randomize which games it pulls
-        for(i = 0; i < 1; i++){
-            // console.log("IN FOR LOOP")
             var title = document.createElement('h2')
             var poster = document.createElement('img')
             var description = document.createElement('p')
 
-            var currentGame = data.games[i]
+            var currentGame = data.games[randomGame]
             console.log(currentGame)
             title.textContent = currentGame.name
             poster.src = (currentGame.image_url)
@@ -70,52 +103,5 @@ function getGame() {
             game.appendChild(title)
             game.appendChild(poster)
             game.appendChild(description)
-        }
-
-
-
-        })
-    }
-
-function getAdultGame() {
-    var requestUrl = "https://api.boardgameatlas.com/api/search?categories=OE07lsfVqf&client_id=j93pbu8wKv"
-
-    console.log(requestUrl)
-    
-    fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
+        
     })
-    .then(function (data) {
-        console.log(data)
-
-        console.log('hi!')
-        console.log(Object)
-
-    // getting the first 10 games on the api
-    // todo need to randomize which games it pulls
-        for(i = 0; i < 1; i++){
-            console.log("IN FOR LOOP")
-            var title = document.createElement('h2')
-            var poster = document.createElement('img')
-            var description = document.createElement('p')
-
-            var currentGame = data.games[i]
-            console.log(currentGame)
-            title.textContent = currentGame.name
-            poster.src = (currentGame.image_url)
-            poster.setAttribute('style','width:25%')
-            description.textContent = currentGame.description
-
-            game.appendChild(title)
-            game.appendChild(poster)
-            game.appendChild(description)
-        }
-
-
-
-        })
-    
-}
-gameSearchbtn.addEventListener("click",getGame)
-adultRated.addEventListener("click",getAdultGame)
