@@ -29,30 +29,18 @@ function getGame() {
         var requestUrl = "https://api.boardgameatlas.com/api/search?categories=cAIkk5aLdQ&client_id=j93pbu8wKv"
         console.log("AHHHHHH")
         // todo history isnt working
-    }else if(history === categoriesDD.value) {
-        var requestUrl = "https://api.boardgameatlas.com/api/search?categories=dghLhwyxVb&client_id=j93pbu8wKv"
-        console.log("history, they are dead")
     }else if(family === categoriesDD.value) {
         console.log("FAM TIME g rated only")
         var requestUrl = "https://api.boardgameatlas.com/api/search?categories=7rV11PKqME&client_id=j93pbu8wKv"
     } else if(sciFi === categoriesDD.value) {
         console.log("sci fi aliens")
         var requestUrl = "https://api.boardgameatlas.com/api/search?categories=3B3QpKvXD3&client_id=j93pbu8wKv"
-    }  else if(science === categoriesDD.value) {
-        console.log("bill nye science guy")
-        var requestUrl = "https://api.boardgameatlas.com/api/search?categories=GCwXmvBCvA&client_id=j93pbu8wKv"
-    } else if(food === categoriesDD.value) {
-        console.log("fruit salad yummy yummy")
-        var requestUrl = "https://api.boardgameatlas.com/api/search?categories=YrDuNj8lvr&client_id=j93pbu8wKv"
-    } else if(travel === categoriesDD.value) {
-        console.log("travel")
-        var requestUrl = "https://api.boardgameatlas.com/api/search?categories=TR4CiP8Huj&client_id=j93pbu8wKv"
     } else if(adventure === categoriesDD.value) {
         console.log("travel")
         var requestUrl = "https://api.boardgameatlas.com/api/search?categories=KUBCKBkGxV&client_id=j93pbu8wKv"
     } 
    
-    var apiKey = "j93pbu8wKv"
+    // var apiKey = "j93pbu8wKv"
    
     
     fetch(requestUrl)
