@@ -1,4 +1,10 @@
 var zone = document.querySelector("#movies")
+var outlineHeart = document.querySelector(".outlineHeart")
+var heartBtn = document.querySelector("#heartBtn")
+
+
+
+
 // movieGenreAPIURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=e346bd747060c7a18ce3926d8f5571b9&language=en-US"
 
 var categories = [mystery = {m:'9648', b:'mystery', g:'BBZb2d0ePt'},
@@ -38,7 +44,9 @@ fetch(movieURL)
       zone.appendChild(title);
       zone.appendChild(poster);
       zone.appendChild(description);
-    
+      // SETTING MOVE TO LOCAL STORAGE
+      localStorage.setItem("MOVIE",[currentMovie.title,currentMovie.poster_path])
+
   })
 
 // Book API (Grayson)
@@ -70,7 +78,10 @@ fetch(url)
 
       book.appendChild(title);
       book.appendChild(cover);
-    
+
+      // SETTING book TO LOCAL STORAGE
+      localStorage.setItem("BOOK",[newBook.title,newBook.cover_id])
+
   });
   
 // gameAPI (Holly)
@@ -103,5 +114,11 @@ fetch(gameURL)
             game.appendChild(title)
             game.appendChild(poster)
             game.appendChild(description)
+
+             // SETTING GAME TO LOCAL STORAGE
+            localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
+            
         
     })
+
+// heartBtn.addEventListener("click",)
