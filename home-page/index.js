@@ -8,6 +8,6 @@ selection.addEventListener('change',function(event){
 
 search.addEventListener('click',function(){
   if(selection.value){
-    return window.location = 'results.html' 
+    return window.location = '../results-page/results.html' 
   }
 })
