@@ -87,9 +87,17 @@ fetch(url)
       book.appendChild(title);
       book.appendChild(cover);
 
-      // SETTING book TO LOCAL STORAGE
-      localStorage.setItem("BOOK",[newBook.title,newBook.cover_id])
-
+      function fillHeartBook(){
+        console.log("HEART BOOK")
+        var bookHeart = document.getElementById("bookHeart")
+        console.log(bookHeart)
+        bookHeart.classList.remove("fa-regular")
+        bookHeart.classList.add("fa-solid")
+        // SETTING book TO LOCAL STORAGE
+        localStorage.setItem("BOOK",[newBook.title,newBook.cover_id])
+      }
+      heartBtn.addEventListener("click",fillHeartBook)
+    
   });
 }
 
