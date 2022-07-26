@@ -34,7 +34,7 @@ function getMovieOptions(){
       var randomMovie = Math.floor(Math.random()*20)
       // console.log(randomMovie)
       
-        var title = document.createElement("h2");
+        var title = document.createElement("h4");
         var poster = document.createElement("img");
         var description = document.createElement("p");
 
@@ -86,7 +86,7 @@ fetch(url)
 
     var randomBook = Math.floor(Math.random()*12)
 
-      var title = document.createElement("h2");
+      var title = document.createElement("h4");
       var cover = document.createElement("img");
 
       var newBook = data.works[randomBook];
@@ -134,7 +134,7 @@ fetch(gameURL)
         }
         var randomGame = Math.floor(Math.random()*randomGame)
         
-        var title = document.createElement('h2')
+        var title = document.createElement('h4')
         var poster = document.createElement('img')
         var description = document.createElement('p')
 
@@ -147,7 +147,7 @@ fetch(gameURL)
 
         game.appendChild(title)
         game.appendChild(poster)
-        game.appendChild(description)
+        // game.appendChild(description)
    // SETTING GAME TO LOCAL STORAGE
              
             

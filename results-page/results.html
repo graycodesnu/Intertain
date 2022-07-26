@@ -4,31 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/1b03fb1c62.js" crossorigin="anonymous"></script>  <title>results page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script src="https://kit.fontawesome.com/1b03fb1c62.js" crossorigin="anonymous"></script> 
+     <title>results page</title>
 </head>
 <body>
+
+
+  <h3>RESULTS</h3>
+
+  <div class="row">
+  <div class="col m4">
+    <div id="books">BOOK <i class="fa-regular fa-heart btn btn-default" id="bookHeart"></i>
+    </div>
   
-  <section id="books">BOOK <i class="fa-regular fa-heart btn btn-default" id="bookHeart"></i>
-  </section>
-
-    <button>More Details</button>   
+      <button>More Details</button>   
+  </div>
   
-  <section id="movies">MOVIE <i class="fa-regular fa-heart btn btn-default" id="movieHeart"></i>
-  </section>
-    <button>More Details</button>   
+  <div class="col m4">
+    <div id="movies">MOVIE <i class="fa-regular fa-heart btn btn-default" id="movieHeart"></i>
+    </div>
+      <button>More Details</button>   
+  </div>
 
-  </p>
 
-  <p>
     
-    
-  <section id="boardgames">BOARD GAME <i class="fa-regular fa-heart btn btn-default "id="heartBtn" id="gameHeart"></i>
-  </section> 
-    <!-- <button ></button> -->
-    <img src="#" alt="Your Boardgame Selection">
+    <div class="col m4">
+      <div id="boardgames">BOARD GAME <i class="fa-regular fa-heart btn btn-default "id="heartBtn" id="gameHeart"></i>
+      </div> 
 
-    <button>More Details</button>   
-  
+        <button>More Details</button>   
+    </div>
+ 
+  </div>
   <script src="script.js"></script>
   
 </body>
