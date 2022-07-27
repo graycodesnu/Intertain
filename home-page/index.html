@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Night-In</title>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 
 <body>
@@ -19,24 +19,26 @@
   </nav>
   </header>
   <main>
-    <h1>INtertain</h1>
-
+    <h1 class="center">INtertain</h1>
+    <div class="border">
     <section class="container">
-      <h3>SELECT A KEYWORD TO GENERATE A BOOK, BOARD GAME, AND MOVIE FOR YOUR COZY NIGHT IN!</h3> 
+      <h5 class="center">SELECT A KEYWORD TO GENERATE A BOOK, BOARD GAME, AND MOVIE FOR YOUR COZY NIGHT IN!</h5> 
       <!-- categories -->
-      <div id="select">
-        <select name="category" id="categories">
-            <option value="" >Choose a category:</option>
+      <form>
+        <input type="search" placeholder="Choose a category"></input> 
+          <select name="category">
             <option value="2">Family</option>
             <option value="1">Horror</option>
             <option value="0">Mystery</option>
             <option value="3">Sci-Fi</option>
             <option value="4">Adventure</option>
-        </select>
-        <button id="search">Search</button>
+          </select>
+        </form>
+        <div class="center">
+        <button>Search</button>
+        </div>
         <!-- <button>Feeling Lucky</button> -->
       </div>      
-      
     </section>
   </main>
 

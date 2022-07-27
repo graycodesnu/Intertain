@@ -2,10 +2,10 @@ nav {
   display: block;
   border-bottom: solid darkgray;
   padding-bottom: 20px;
+  background-color: #3a1772ff;
 }
 
 nav a {
-  color: mediumslateblue;
   font-weight: bold;
   font-size: larger;
   padding: 5px 15px;
@@ -13,6 +13,19 @@ nav a {
   outline: solid;
 }
 
-h1 {
-text-align: center;      
+button {
+  background-color: #3a1772ff;
+  color: #fffbffff;
+  font-size: 20px;
+  height: 50px;
+  width: 100px;
 }
+
+.border {
+ border: solid grey;
+ margin: 0 50px 0px 50px;
+ padding-bottom: 15px;
+ padding-top: 15px;
+}
+
+
