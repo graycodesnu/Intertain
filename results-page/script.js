@@ -19,7 +19,7 @@ function getMovieOptions(){
   var movieURL = "https://api.themoviedb.org/3/discover/movie?api_key=3b1bc545c2aff630803e3dfd3ac89e2e&with_genres=<genre>&page=1"
   var posterPath = "https://image.tmdb.org/t/p/original/"
   movieURL = movieURL.replace('<genre>',genre.m)
-
+  movieModal = document.querySelector('#movieModal')
 
   // Movie API (Aumio)
   fetch(movieURL)
@@ -33,14 +33,16 @@ function getMovieOptions(){
       
       var title = document.createElement("h4");
       var poster = document.createElement("img");
-      // var description = document.createElement("p");
+      var modalTitle = movieModal.children[0].children[0]
+      var modalDescription = movieModal.children[0].children[1]
 
       var currentMovie = data.results[randomMovie];
 
       title.textContent = currentMovie.title;
+      modalTitle.textContent = currentMovie.title;
       poster.src = posterPath.concat(currentMovie.poster_path);
       poster.setAttribute("style", "width:25%");
-      // description.textContent = currentMovie.overview;
+      modalDescription.textContent = currentMovie.overview;
 
       zone.appendChild(title);
       zone.appendChild(poster);
@@ -65,7 +67,7 @@ function getBookOptions(){
 // Book API (Grayson)
 // https://openlibrary.org/dev/docs/api/covers
 
-
+var bookModal = document.querySelector("#bookModal")
 var url = "http://openlibrary.org/subjects/genre.json";
 var coverPath = "https://covers.openlibrary.org/b/id/";
 
@@ -82,12 +84,17 @@ fetch(url)
 
     var title = document.createElement("h4");
     var cover = document.createElement("img");
+    var bookTitle = bookModal.children[0].children[0]
+    var bookDescription = bookModal.children[0].children[1]
 
     var newBook = data.works[randomBook];
 
     title.textContent = newBook.title;
+    bookTitle.textContent = newBook.title
     cover.src = coverPath.concat(newBook.cover_id,'-L.jpg');
     cover.setAttribute("style", "width: 25%");
+    bookDescription.setAttribute('href',`https://openlibrary.org${newBook.key}`)
+    // bookDescription.innerText("Click here for link to full information")
 
     book.appendChild(title);
     book.appendChild(cover);
@@ -107,55 +114,54 @@ fetch(url)
 }
 // generate game name and related poster/box
 function getGameOptions(){
-  
-// gameAPI (Holly)
+  // gameAPI (Holly)
+  var gameURL = "https://api.boardgameatlas.com/api/search?categories=genre&client_id=j93pbu8wKv"
+  var gameModal = document.querySelector("#gameModal")
+  gameURL = gameURL.replace('genre',genre.g)
 
+  fetch(gameURL)
+      .then(function (response) {
+          return response.json()
+      })
+      .then(function (data) {
+          console.log(data)
 
-var gameURL = "https://api.boardgameatlas.com/api/search?categories=genre&client_id=j93pbu8wKv"
+          var randomGame = 25
+          if(genre = mystery){
+            randomGame -=10
+          }
 
-gameURL = gameURL.replace('genre',genre.g)
+          var randomGame = Math.floor(Math.random()*randomGame)
+          
+          var title = document.createElement('h4')
+          var poster = document.createElement('img')
+          var modalTitle = gameModal.children[0].children[0]
+          var description = gameModal.children[0].children[1]
 
-fetch(gameURL)
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function (data) {
-        console.log(data)
+          var currentGame = data.games[randomGame]
+          console.log(currentGame)
+          title.textContent = currentGame.name
+          modalTitle.textContent = currentGame.name
+          poster.src = (currentGame.image_url)
+          poster.setAttribute('style','width:25%')
+          description.textContent = currentGame.description_preview
 
-        var randomGame = 25
-        if(genre = mystery){
-          randomGame -=10
-        }
-
-        var randomGame = Math.floor(Math.random()*randomGame)
-        
-        var title = document.createElement('h4')
-        var poster = document.createElement('img')
-        var description = document.createElement('p')
-
-        var currentGame = data.games[randomGame]
-        console.log(currentGame)
-        title.textContent = currentGame.name
-        poster.src = (currentGame.image_url)
-        poster.setAttribute('style','width:25%')
-        description.textContent = currentGame.description
-
-        game.appendChild(title)
-        game.appendChild(poster)
-        // game.appendChild(description)
-        // SETTING GAME TO LOCAL STORAGE
-            
-        function fillHeartGame(){
-          console.log("HEART")
-          var gameHeart = document.getElementById("heartBtn")
-          console.log(gameHeart)
-          gameHeart.classList.remove("fa-regular")
-          gameHeart.classList.add("fa-solid")
-          localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
-        }
-        heartBtn.addEventListener("click",fillHeartGame)
-        gameURL = gameURL.replace(genre.g,'genre')
-    })
+          game.appendChild(title)
+          game.appendChild(poster)
+          // game.appendChild(description)
+          // SETTING GAME TO LOCAL STORAGE
+              
+          function fillHeartGame(){
+            console.log("HEART")
+            var gameHeart = document.getElementById("heartBtn")
+            console.log(gameHeart)
+            gameHeart.classList.remove("fa-regular")
+            gameHeart.classList.add("fa-solid")
+            localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
+          }
+          heartBtn.addEventListener("click",fillHeartGame)
+          gameURL = gameURL.replace(genre.g,'genre')
+      })
 }
 
 // temporary for testing within results.html only
@@ -199,5 +205,3 @@ gameRefresh.addEventListener('click',function(){
 getMovieOptions()
 getBookOptions()
 getGameOptions()
-
-
