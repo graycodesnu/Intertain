@@ -14,5 +14,34 @@ nav {
   }
   
   h1 {
-  text-align: center;      
+  text-align: center;  
+      
+  }
+
+  h2{
+text-decoration:underline;
+ }
+  #teamBlurb{
+    /* margin-left: 2em; */
+    font-size: medium;
+    text-align: center;
+  }
+  #adrianaMemoji {
+    float: left;
+    height: 20em;
+    margin-left:1em;
+  }
+  #hollyMemoji  {
+    float: right;
+    height: 20em;
+  }
+  #graysonMemoji{
+    float: left;
+    height: 20em;
+    margin-left:1em;
+  }
+  #aumioMemoji{
+    float: right;
+    height: 20em;
+  
   }
