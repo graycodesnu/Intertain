@@ -14,8 +14,9 @@
   <header>  
   <nav>
     <div class="left " href="#"><img src="/Users/adrianavillegas/bootcamp/projects/Night-In/assets/logo.png" alt="INtertain logo"></div>
+    <!--Not Sure what search is for on the homepage?-->
     <a class="center" href="#">Search</a>
-    <a class="center" href="/projects/Night-In/favorites-landing/favoritesLanding.html">Favorites</a>
+    <a class="center" href="../Night-In/favorites-landing/favoritesLanding.html">Favorites</a>
     <a class="center" href="#">About Us</a>
   </nav>
   </header>
@@ -25,24 +26,31 @@
     <section class="container">
       <h5 class="center">SELECT A KEYWORD TO GENERATE A BOOK, BOARD GAME, AND MOVIE FOR YOUR COZY NIGHT IN!</h5> 
       <!-- categories -->
-      <form>
-        <input type="search" placeholder="Choose a category"></input> 
-          <select name="category">
+      <div class="input-field col s12">
+          <select name="category" id="categories">
+            <option value="" disabled selected>Choose a category</option>
             <option value="2">Family</option>
             <option value="1">Horror</option>
             <option value="0">Mystery</option>
             <option value="3">Sci-Fi</option>
             <option value="4">Adventure</option>
           </select>
-        </form>
+        </div>
         <div class="center">
-        <button>Search</button>
+          <button id="search">Search</button>
         </div>
         <!-- <button>Feeling Lucky</button> -->
       </div>      
     </section>
   </main>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
+  </script>
   <script src="index.js"></script>
   </body>
 </html>
