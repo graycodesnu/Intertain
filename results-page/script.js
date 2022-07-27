@@ -3,8 +3,6 @@ var zone = document.querySelector("#movies")
 var book = document.querySelector("#books")
 var game = document.querySelector("#boardgames")
 // not being used
-// var outlineHeart = document.querySelector(".outlineHeart")
-var heartBtn = document.querySelector("#heartBtn")
 
 var categories = [mystery = {m:'9648', b:'mystery', g:'BBZb2d0ePt'},
                   horror = {m:'27', b:'horror', g:'cAIkk5aLdQ'},
@@ -12,15 +10,33 @@ var categories = [mystery = {m:'9648', b:'mystery', g:'BBZb2d0ePt'},
                   sciFi = {m:'878', b:'science_fiction', g:'3B3QpKvXD3'},
                   adventure = {m:'12', b:'fantasy', g:'KUBCKBkGxV'}]
 // category variable
-var genre
+var genre = categories[localStorage.getItem('category')]
+
+if(!localStorage.getItem('movieCounter')){
+  var movieCounter = 0
+}else{
+  movieCounter = +localStorage.getItem('movieCounter')
+}
+if(!localStorage.getItem('gameCounter')){
+  var gameCounter = 0
+}else{
+  gameCounter = +localStorage.getItem('gameCounter')
+}
+if(!localStorage.getItem('bookCounter')){
+  var bookCounter = 0
+}else{
+  bookCounter = +localStorage.getItem('bookCounter')
+}
+
+
+var movieModal = document.querySelector('#movieModal')
 // generate movie name and poster
 function getMovieOptions(){
   // movieGenreAPIURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=e346bd747060c7a18ce3926d8f5571b9&language=en-US"
   var movieURL = "https://api.themoviedb.org/3/discover/movie?api_key=3b1bc545c2aff630803e3dfd3ac89e2e&with_genres=<genre>&page=1"
   var posterPath = "https://image.tmdb.org/t/p/original/"
   movieURL = movieURL.replace('<genre>',genre.m)
-  movieModal = document.querySelector('#movieModal')
-
+  
   // Movie API (Aumio)
   fetch(movieURL)
     .then(function (response) {
@@ -47,27 +63,34 @@ function getMovieOptions(){
       zone.appendChild(title);
       zone.appendChild(poster);
       // zone.appendChild(description);
-        
-      function fillHeartMovie(){
-        console.log("HEART MOVIE")
-        var movieHeart = document.getElementById("movieHeart")
-        console.log(movieHeart)
-        movieHeart.classList.remove("fa-regular")
-        movieHeart.classList.add("fa-solid")
-        // SETTING MOVE TO LOCAL STORAGE
-        localStorage.setItem("MOVIE",[currentMovie.title,currentMovie.poster_path])
-      }
-      movieHeart.addEventListener("click",fillHeartMovie)
       movieURL = movieURL.replace(genre.m,'<genre>')
-  });
+    });
 }
 
+var movieHeart = document.getElementById("movieHeart")
+
+function fillHeartMovie(){
+  console.log("HEART MOVIE")
+  console.log(movieHeart)
+  movieHeart.classList.remove("fa-regular")
+  movieHeart.classList.add("fa-solid","disabled")
+  // SETTING MOVE TO LOCAL STORAGE
+  console.log(zone.children)
+  localStorage.setItem("MOVIE " + movieCounter,[zone.children[2].textContent,zone.children[3].src,movieModal.children[0].children[1].textContent])
+  movieCounter++
+  localStorage.setItem('movieCounter',movieCounter)
+}
+movieHeart.addEventListener("click",fillHeartMovie)
+
+
+
+var bookModal = document.querySelector("#bookModal")
 // generate book name and cover
 function getBookOptions(){
 // Book API (Grayson)
 // https://openlibrary.org/dev/docs/api/covers
 
-var bookModal = document.querySelector("#bookModal")
+
 var url = "http://openlibrary.org/subjects/genre.json";
 var coverPath = "https://covers.openlibrary.org/b/id/";
 
@@ -99,24 +122,31 @@ fetch(url)
     book.appendChild(title);
     book.appendChild(cover);
 
-    function fillHeartBook(){
-      console.log("HEART BOOK")
-      var bookHeart = document.getElementById("bookHeart")
-      // console.log(bookHeart)
-      bookHeart.classList.remove("fa-regular")
-      bookHeart.classList.add("fa-solid")
-      // SETTING book TO LOCAL STORAGE
-      localStorage.setItem("BOOK",[newBook.title,coverPath.concat(newBook.cover_id,'-L.jpg')])
-    }
-    bookHeart.addEventListener("click",fillHeartBook)
+    
     url = url.replace(genre.b,'genre')
   });
 }
+
+var bookHeart = document.getElementById("bookHeart")
+
+function fillHeartBook(){
+  console.log("HEART BOOK")
+  // console.log(bookHeart)
+  bookHeart.classList.remove("fa-regular")
+  bookHeart.classList.add("fa-solid","disabled")
+  // SETTING book TO LOCAL STORAGE
+  localStorage.setItem("BOOK " + bookCounter,[book.children[2].textContent,book.children[3].src,bookModal.children[0].children[1].textContent])
+  bookCounter++
+  localStorage.setItem('bookCounter',bookCounter)
+}
+bookHeart.addEventListener("click",fillHeartBook)
+
+var gameModal = document.querySelector("#gameModal")
 // generate game name and related poster/box
 function getGameOptions(){
   // gameAPI (Holly)
   var gameURL = "https://api.boardgameatlas.com/api/search?categories=genre&client_id=j93pbu8wKv"
-  var gameModal = document.querySelector("#gameModal")
+  
   gameURL = gameURL.replace('genre',genre.g)
 
   fetch(gameURL)
@@ -124,50 +154,50 @@ function getGameOptions(){
           return response.json()
       })
       .then(function (data) {
-          console.log(data)
+        console.log(data)
 
-          var randomGame = 25
-          if(genre = mystery){
-            randomGame -=10
-          }
+        var randomGame = 25
+        if(genre = mystery){
+          randomGame -=10
+        }
 
-          var randomGame = Math.floor(Math.random()*randomGame)
-          
-          var title = document.createElement('h4')
-          var poster = document.createElement('img')
-          var modalTitle = gameModal.children[0].children[0]
-          var description = gameModal.children[0].children[1]
+        var randomGame = Math.floor(Math.random()*randomGame)
+        
+        var title = document.createElement('h4')
+        var poster = document.createElement('img')
+        var modalTitle = gameModal.children[0].children[0]
+        var description = gameModal.children[0].children[1]
 
-          var currentGame = data.games[randomGame]
-          console.log(currentGame)
-          title.textContent = currentGame.name
-          modalTitle.textContent = currentGame.name
-          poster.src = (currentGame.image_url)
-          poster.setAttribute('style','width:25%')
-          description.textContent = currentGame.description_preview
+        var currentGame = data.games[randomGame]
+        console.log(currentGame)
+        title.textContent = currentGame.name
+        modalTitle.textContent = currentGame.name
+        poster.src = (currentGame.image_url)
+        poster.setAttribute('style','width:25%')
+        description.textContent = currentGame.description_preview
 
-          game.appendChild(title)
-          game.appendChild(poster)
-          // game.appendChild(description)
-          // SETTING GAME TO LOCAL STORAGE
-              
-          function fillHeartGame(){
-            console.log("HEART")
-            var gameHeart = document.getElementById("heartBtn")
-            console.log(gameHeart)
-            gameHeart.classList.remove("fa-regular")
-            gameHeart.classList.add("fa-solid")
-            localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
-          }
-          heartBtn.addEventListener("click",fillHeartGame)
-          gameURL = gameURL.replace(genre.g,'genre')
+        game.appendChild(title)
+        game.appendChild(poster)
+        // game.appendChild(description)
+        // SETTING GAME TO LOCAL STORAGE
+        
+        gameURL = gameURL.replace(genre.g,'genre')
       })
 }
 
-// temporary for testing within results.html only
-if(localStorage.getItem('category')){
-  genre = categories[localStorage.getItem('category')]
+var gameHeart = document.getElementById("heartBtn")
+
+function fillHeartGame(){
+  console.log("HEART")
+  console.log(gameHeart)
+  gameHeart.classList.remove("fa-regular")
+  gameHeart.classList.add("fa-solid","disabled")
+  localStorage.setItem("GAME " + gameCounter,[game.children[2].textContent,game.children[3].src,gameModal.children[0].children[1].textContent])
+  gameCounter++
+  localStorage.setItem('gameCounter',gameCounter)
 }
+gameHeart.addEventListener("click",fillHeartGame)
+
 
 var bookRefresh = book.children[1]
 var movieRefresh = zone.children[1]
@@ -181,6 +211,8 @@ bookRefresh.addEventListener('click',function(){
     book.removeChild(book.lastChild)
     items--
   }
+  bookHeart.classList.add("fa-regular")
+  bookHeart.classList.remove("fa-solid","disabled")
   genre = categories[localStorage.getItem('category')]
   getBookOptions()
 })
@@ -191,6 +223,8 @@ movieRefresh.addEventListener('click',function(){
     zone.removeChild(zone.lastChild)
     items--
   }
+  movieHeart.classList.add("fa-regular")
+  movieHeart.classList.remove("fa-solid","disabled")
   genre = categories[localStorage.getItem('category')]
   getMovieOptions()
 })
@@ -201,6 +235,8 @@ gameRefresh.addEventListener('click',function(){
     game.removeChild(game.lastChild)
     items--
   }
+  gameHeart.classList.add("fa-regular")
+  gameHeart.classList.remove("fa-solid","disabled")
   genre = categories[localStorage.getItem('category')]
   getGameOptions()
 })
