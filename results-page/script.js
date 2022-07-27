@@ -1,3 +1,13 @@
+
+var zone = document.querySelector("#movies")
+var outlineHeart = document.querySelector(".outlineHeart")
+var heartBtn = document.querySelector("#heartBtn")
+
+
+
+
+// movieGenreAPIURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=e346bd747060c7a18ce3926d8f5571b9&language=en-US"
+
 var categories = [mystery = {m:'9648', b:'mystery', g:'BBZb2d0ePt'},
                   horror = {m:'27', b:'horror', g:'cAIkk5aLdQ'},
                   family = {m:'10751', b:'young_adult_fiction', g:'7rV11PKqME'},
@@ -13,6 +23,7 @@ function getMovieOptions(){
   var posterPath = "https://image.tmdb.org/t/p/original/"
   movieURL = movieURL.replace('<genre>',genre.m)
 
+
   // Movie API (Aumio)
   fetch(movieURL)
     .then(function (response) {
@@ -23,7 +34,7 @@ function getMovieOptions(){
       var randomMovie = Math.floor(Math.random()*20)
       // console.log(randomMovie)
       
-        var title = document.createElement("h2");
+        var title = document.createElement("h4");
         var poster = document.createElement("img");
         var description = document.createElement("p");
 
@@ -37,9 +48,24 @@ function getMovieOptions(){
         zone.appendChild(title);
         zone.appendChild(poster);
         zone.appendChild(description);
+        
+  function fillHeartMovie(){
+        console.log("HEART MOVIE")
+        var movieHeart = document.getElementById("movieHeart")
+        console.log(movieHeart)
+        movieHeart.classList.remove("fa-regular")
+        movieHeart.classList.add("fa-solid")
+        // SETTING MOVE TO LOCAL STORAGE
+      localStorage.setItem("MOVIE",[currentMovie.title,currentMovie.poster_path])
+    
+      }
+      movieHeart.addEventListener("click",fillHeartMovie)
+    
+  });
       
-    })
+    
 }
+
 
 function getBookOptions(){
 // Book API (Grayson)
@@ -60,7 +86,7 @@ fetch(url)
 
     var randomBook = Math.floor(Math.random()*12)
 
-      var title = document.createElement("h2");
+      var title = document.createElement("h4");
       var cover = document.createElement("img");
 
       var newBook = data.works[randomBook];
@@ -71,6 +97,17 @@ fetch(url)
 
       book.appendChild(title);
       book.appendChild(cover);
+
+      function fillHeartBook(){
+        console.log("HEART BOOK")
+        var bookHeart = document.getElementById("bookHeart")
+        console.log(bookHeart)
+        bookHeart.classList.remove("fa-regular")
+        bookHeart.classList.add("fa-solid")
+        // SETTING book TO LOCAL STORAGE
+        localStorage.setItem("BOOK",[newBook.title,coverPath.concat(newBook.cover_id,'-L.jpg')])
+      }
+      book.addEventListener("click",fillHeartBook)
     
   });
 }
@@ -90,14 +127,14 @@ fetch(gameURL)
     })
     .then(function (data) {
         console.log(data)
-        
+
         var randomGame = 25
         if(genre = mystery){
           randomGame -=10
         }
         var randomGame = Math.floor(Math.random()*randomGame)
         
-        var title = document.createElement('h2')
+        var title = document.createElement('h4')
         var poster = document.createElement('img')
         var description = document.createElement('p')
 
@@ -110,9 +147,23 @@ fetch(gameURL)
 
         game.appendChild(title)
         game.appendChild(poster)
-        game.appendChild(description)
-        
-    })
+        // game.appendChild(description)
+   // SETTING GAME TO LOCAL STORAGE
+             
+            
+            function fillHeartGame(){
+              console.log("HEART")
+              var gameHeart = document.getElementById("heartBtn")
+              console.log(gameHeart)
+              gameHeart.classList.remove("fa-regular")
+              gameHeart.classList.add("fa-solid")
+              localStorage.setItem("GAME",[currentGame.name,currentGame.image_url])
+            }
+            heartBtn.addEventListener("click",fillHeartGame)
+            
+    },
+    )
+    // fillHeartGame()
 }
 
 // temporary for testing within results.html only
@@ -123,3 +174,5 @@ if(localStorage.getItem('category')){
 getMovieOptions()
 getBookOptions()
 getGameOptions()
+
+
