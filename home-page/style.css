@@ -34,3 +34,9 @@ label {
   font-size: 40px;
   color: black;
 }
+#moon{
+  /* margin-left: 20em; */
+  margin-top: 5em;
+  display: flex;
+  justify-content: center;
+}
