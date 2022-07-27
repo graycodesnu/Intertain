@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <script src="https://kit.fontawesome.com/1b03fb1c62.js" crossorigin="anonymous"></script> 
      <title>results page</title>
      <link rel="stylesheet" type="text/css" href="./style.css"/>
+
+    <title>results page</title>
+
 </head>
 
 <body>
@@ -22,30 +27,67 @@
   <h3>RESULTS</h3>
 
   <div class="row">
-  <div class="col m4">
-    <div id="books">BOOK <i class="fa-regular fa-heart btn btn-default" id="bookHeart"></i>
+    <div class="col m4">
+      <div id="books">BOOK <i class="fa-regular fa-heart btn btn-default" id="bookHeart"></i>
+        <button>Refresh</button>
+      </div>   
+      <a class="waves-effect waves-light btn modal-trigger" href="#bookModal">More Info</a>
+      <div id="bookModal" class="modal">
+        <div class="modal-content">
+          <h4></h4>
+          <a>Click here to open the link for all the information</a>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
     </div>
   
-      <button>More Details</button>   
-  </div>
-  
-  <div class="col m4">
-    <div id="movies">MOVIE <i class="fa-regular fa-heart btn btn-default" id="movieHeart"></i>
+    <div class="col m4">
+      <div id="movies">MOVIE <i class="fa-regular fa-heart btn btn-default" id="movieHeart"></i>
+        <button>Refresh</button>   
+      </div>
+      <!-- <button data-target="movieModal" class="btn modal-trigger">More Details</button> -->
+      <a class="waves-effect waves-light btn modal-trigger" href="#movieModal">More Info</a>
+      <div id="movieModal" class="modal">
+        <div class="modal-content">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
     </div>
-      <button>More Details</button>   
-  </div>
 
 
     
     <div class="col m4">
-      <div id="boardgames">BOARD GAME <i class="fa-regular fa-heart btn btn-default "id="heartBtn" id="gameHeart"></i>
+      <div id="boardgames">BOARD GAME <i class="fa-regular fa-heart btn btn-default" id="heartBtn" id="gameHeart"></i>
+        <button>Refresh</button>
       </div> 
-
-        <button>More Details</button>   
+      <a class="waves-effect waves-light btn modal-trigger" href="#gameModal">More Info</a>
+      <div id="gameModal" class="modal">
+        <div class="modal-content">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div> 
     </div>
  
   </div>
+  <script src="https://kit.fontawesome.com/1b03fb1c62.js" crossorigin="anonymous"></script> 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+      $(document).ready(function(){
+          $('.modal').modal();
+      });
+  </script>
   <script src="script.js"></script>
-  
 </body>
 </html>
