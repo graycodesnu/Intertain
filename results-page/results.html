@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fix mixed content error-->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>results page</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -17,7 +19,9 @@
   <header>
 
   <nav>
-    <div class="left " href="index.html"><img src="./assets/INtertainLogo.png" alt="INtertain logo"></div>
+
+    <div class="left" href="#"><img src="../assets/logo.png" alt="INtertain logo"></div>
+
     <a class="center" href="../home-page/index.html">Search</a>
     <a class="center" href="../favorites-landing/favoritesLanding.html">Favorites</a>
     <a class="center" href="#">About Us</a>
