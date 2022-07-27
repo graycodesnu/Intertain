@@ -1,7 +1,8 @@
 nav {
   display: block;
+  position: relative;
   border-bottom: solid darkgray;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   background-color: #3a1772ff;
 }
 
@@ -9,6 +10,7 @@ nav a {
   font-weight: bold;
   font-size: larger;
   padding: 5px 15px;
+  margin: 15px;
   text-align: center;
   outline: solid;
 }
@@ -28,4 +30,7 @@ button {
  padding-top: 15px;
 }
 
-
+label {
+  font-size: 40px;
+  color: black;
+}
