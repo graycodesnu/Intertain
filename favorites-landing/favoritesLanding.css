@@ -1,9 +1,32 @@
-/* favorite-photos {
+/* /* favorite-photos {
     width: 150px;
     height: 200px;
 } */
 
 /* .nav-bar {
    @extend .mediumslateblue;
-} 
+}  */
+nav {
+  display: block;
+  position: relative;
+  border-bottom: solid darkgray;
+  padding-bottom: 30px;
+  background-color: #3a1772ff;
+}
 
+nav a {
+  font-weight: bold;
+  font-size: larger;
+  padding: 5px 15px;
+  margin: 15px;
+  text-align: center;
+  outline: solid;
+}
+
+button {
+  background-color: #3a1772ff;
+  color: #fffbffff;
+  font-size: 20px;
+  height: 50px;
+  width: 100px;
+}

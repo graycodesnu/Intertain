@@ -1,18 +1,62 @@
 nav {
-    display: block;
-    border-bottom: solid darkgray;
-    padding-bottom: 20px;
-  }
-  
-  nav a {
-    color: mediumslateblue;
-    font-weight: bold;
-    font-size: larger;
-    padding: 5px 15px;
-    text-align: center;
-    outline: solid;
-  }
-  
+  display: block;
+  position: relative;
+  border-bottom: solid darkgray;
+  padding-bottom: 30px;
+  background-color: #3a1772ff;
+}
+
+nav a {
+  font-weight: bold;
+  font-size: larger;
+  padding: 5px 15px;
+  margin: 15px;
+  text-align: center;
+  outline: solid;
+}
+
+button {
+  background-color: #3a1772ff;
+  color: #fffbffff;
+  font-size: 20px;
+  height: 50px;
+  width: 100px;
+}
   h1 {
-  text-align: center;      
+  text-align: center;  
+      
+  }
+
+  h2{
+text-decoration:underline;
+ }
+  #teamBlurb{
+    /* margin-left: 2em; */
+    font-size: 24px;
+    text-align: center;
+  
+  }
+  #adrianaMemoji {
+    float: left;
+    height: 20em;
+    margin-left:6em;
+  }
+  #hollyMemoji  {
+    float: right;
+    height: 20em;
+    margin-right:6em;
+
+  }
+  #graysonMemoji{
+    float: left;
+    height: 20em;
+    margin-left:6em;
+
+  }
+  #aumioMemoji{
+    float: right;
+    height: 20em;
+    margin-right:6em;
+
+  
   }
