@@ -11,8 +11,8 @@ var categories = [mystery = {m:'9648', b:'mystery', g:'BBZb2d0ePt'},
                   family = {m:'10751', b:'young_adult_fiction', g:'7rV11PKqME'},
                   sciFi = {m:'878', b:'science_fiction', g:'3B3QpKvXD3'},
                   adventure = {m:'12', b:'fantasy', g:'KUBCKBkGxV'}]
-// default category for testing results page
-var genre = categories[0];
+// category variable
+var genre
 // generate movie name and poster
 function getMovieOptions(){
   // movieGenreAPIURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=e346bd747060c7a18ce3926d8f5571b9&language=en-US"
@@ -181,6 +181,7 @@ bookRefresh.addEventListener('click',function(){
     book.removeChild(book.lastChild)
     items--
   }
+  genre = categories[localStorage.getItem('category')]
   getBookOptions()
 })
 
@@ -190,6 +191,7 @@ movieRefresh.addEventListener('click',function(){
     zone.removeChild(zone.lastChild)
     items--
   }
+  genre = categories[localStorage.getItem('category')]
   getMovieOptions()
 })
 
@@ -199,6 +201,7 @@ gameRefresh.addEventListener('click',function(){
     game.removeChild(game.lastChild)
     items--
   }
+  genre = categories[localStorage.getItem('category')]
   getGameOptions()
 })
 
