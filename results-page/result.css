@@ -1,0 +1,29 @@
+#bookHeart{
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    margin-right: 0.5em;
+}
+#movieHeart{
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    margin-right: 0.5em;
+}
+#heartBtn{
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    margin-right: 0.5em;
+}
+
+
+#popcorn{
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    /* margin-bottom: 0.5em; */
+    /* margin: 1em; */
+}
+h1{
+    margin-bottom: 0.5em;
+    text-decoration: underline;
+    margin-left: 1.5em;
+}

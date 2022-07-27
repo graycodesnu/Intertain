@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/1b03fb1c62.js" crossorigin="anonymous"></script> 
     <title>results page</title>
     <link rel="stylesheet" type="text/css" href="../home-page/style.css"/>
+    <link rel="stylesheet" href="../results-page/result.css">
     <title>results page</title>
 </head>
 
@@ -19,23 +20,34 @@
   <header>
 
   <nav>
-    <div class="left" href="#"><img src="../assets/logo.png" alt="INtertain logo"></div>
+
+    <div class="left" href="../home-page/index.html"><img src="../assets/logo.png" alt="INtertain logo"></div>
+
     <a class="center" href="../home-page/index.html">Search</a>
     <a class="center" href="../favorites-landing/favoritesLanding.html">Favorites</a>
-    <a class="center" href="#">About Us</a>
+    <a class="center" href="../about-us/about.html">About Us</a>
   </nav>
   </header>
   
   <main>
-  <h3 class="center">RESULTS</h3>
+    <div  id="popcorn">
+      <img src="../assets/popcorn.png" alt="popcorn icon" id="popcorn">
+
+      
+    </div>
+    <h1 class="center">Pop In!</h1>
+    
+
+    
+ 
 
   <div class="row">
     <div class="col m4">
       <label for="books">BOOK</label>
-      <div id="books"><i class="fa-regular fa-heart btn btn-default" id="bookHeart"></i>
-        <button>Refresh</button>
+      <div id="books"><i class="fa-regular fa-heart btn purple darken-3" id="bookHeart"></i>
+        <i class="fa-solid fa-arrows-rotate" class="refresh"></i>
       </div>   
-      <a class="waves-effect waves-light btn modal-trigger" href="#bookModal">More Info</a>
+      <a class="waves-effect waves-light purple darken-3 btn modal-trigger" href="#bookModal">More Info</a>
       <div id="bookModal" class="modal">
         <div class="modal-content">
           <h4></h4>
@@ -49,11 +61,11 @@
   
     <div class="col m4">
       <label for="movies">MOVIE</label>
-      <div id="movies"><i class="fa-regular fa-heart btn btn-default" id="movieHeart"></i>
-        <button>Refresh</button>   
+      <div id="movies"><i class="fa-regular fa-heart btn purple darken-3" id="movieHeart"></i>
+        <i class="fa-solid fa-arrows-rotate" class="refresh"></i> 
       </div>
       <!-- <button data-target="movieModal" class="btn modal-trigger">More Details</button> -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#movieModal">More Info</a>
+      <a class="waves-effect waves-light purple darken-3 btn modal-trigger" href="#movieModal">More Info</a>
       <div id="movieModal" class="modal">
         <div class="modal-content">
           <h4></h4>
@@ -68,18 +80,18 @@
 
     
     <div class="col m4">
-      <label for="boardgames">BOARD GAME</label>
-      <div id="boardgames"> <i class="fa-regular fa-heart btn btn-default" id="heartBtn" id="gameHeart"></i>
-        <button>Refresh</button>
+      <label for="boardgames">GAME</label>
+      <div id="boardgames"> <i class="fa-regular fa-heart btn purple darken-3" id="heartBtn" id="gameHeart"></i>
+        <i class="fa-solid fa-arrows-rotate" class="refresh"></i>
       </div> 
-      <a class="waves-effect waves-light btn modal-trigger" href="#gameModal">More Info</a>
+      <a class="waves-effect waves-light  purple darken-3 btn modal-trigger" href="#gameModal">More Info</a>
       <div id="gameModal" class="modal">
         <div class="modal-content">
           <h4></h4>
           <p></p>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat ">Close</a>
         </div>
       </div> 
     </div>
