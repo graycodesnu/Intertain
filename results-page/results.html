@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>results page</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://kit.fontawesome.com/1b03fb1c62.js" crossorigin="anonymous"></script> 
     <title>results page</title>
     <link rel="stylesheet" type="text/css" href="../home-page/style.css"/>
-
     <title>results page</title>
-
 </head>
 
 <body>
   <header>
-    <nav>
-      <a href="../home-page/index.html">Search</a>
-      <a href="../favorites-landing/favoritesLanding.html">Favorites</a>
-      <a href="#">About Us</a>
-    </nav>
-    </header>
 
-  <h3>RESULTS</h3>
+  <nav>
+    <div class="left" href="#"><img src="/Users/adrianavillegas/bootcamp/projects/Night-In/assets/logo.png" alt="INtertain logo"></div>
+    <a class="center" href="../home-page/index.html">Search</a>
+    <a class="center" href="../favorites-landing/favoritesLanding.html">Favorites</a>
+    <a class="center" href="#">About Us</a>
+  </nav>
+  </header>
+  
+  <main>
+  <h3 class="center">RESULTS</h3>
 
   <div class="row">
     <div class="col m4">
-      <div id="books">BOOK <i class="fa-regular fa-heart btn btn-default" id="bookHeart"></i>
+      <label for="books">BOOK</label>
+      <div id="books"><i class="fa-regular fa-heart btn btn-default" id="bookHeart"></i>
         <button>Refresh</button>
       </div>   
       <a class="waves-effect waves-light btn modal-trigger" href="#bookModal">More Info</a>
@@ -43,7 +46,8 @@
     </div>
   
     <div class="col m4">
-      <div id="movies">MOVIE <i class="fa-regular fa-heart btn btn-default" id="movieHeart"></i>
+      <label for="movies">MOVIE</label>
+      <div id="movies"><i class="fa-regular fa-heart btn btn-default" id="movieHeart"></i>
         <button>Refresh</button>   
       </div>
       <!-- <button data-target="movieModal" class="btn modal-trigger">More Details</button> -->
@@ -62,7 +66,8 @@
 
     
     <div class="col m4">
-      <div id="boardgames">BOARD GAME <i class="fa-regular fa-heart btn btn-default" id="heartBtn" id="gameHeart"></i>
+      <label for="boardgames">BOARD GAME</label>
+      <div id="boardgames"> <i class="fa-regular fa-heart btn btn-default" id="heartBtn" id="gameHeart"></i>
         <button>Refresh</button>
       </div> 
       <a class="waves-effect waves-light btn modal-trigger" href="#gameModal">More Info</a>
@@ -88,5 +93,6 @@
       });
   </script>
   <script src="script.js"></script>
+  </main>
 </body>
 </html>
