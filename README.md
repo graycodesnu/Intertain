@@ -35,4 +35,17 @@ Be patient and flexible – let people think through their own process and worki
 =======
 #Intertainment
 
+This is our homepage for reference:
+![alt text](./assets/Homepage.png)
+
+References:
+For Icons: https://www.flaticon.com/
+Images: https://www.google.com/imghp?hl=EN
+
+
+Our Links:
+Deployed Site: https://nw-bootcamp-team1.github.io/Night-In/home-page/index
+
+Github: https://github.com/NW-Bootcamp-Team1/Night-In
+
 
