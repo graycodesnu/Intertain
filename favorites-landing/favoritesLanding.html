@@ -5,20 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>INtertain Favorites</title>
-    <link rel="stylesheet" type="text/css" href="./favoritesLanding.css" />
-
     <!-- Compiled and minified Materialize CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link rel="stylesheet" type="text/css" href="./favoritesLanding.css" />
   </head>
 
   <body>
   <!-- Navbar -->
   <nav style="background-color: #3a1772ff;">
     <div class="left " href="../home-page/index.html"><img src="../assets/logo.png" alt="INtertain logo"></div>
-    <a class="center" href="../home-page/index.html">Search</a>
+    <a class="center" href="../home-page/index.html">Home</a>
     <a class="center" href="../favorites-landing/favoritesLanding.html">Favorites</a>
     <a class="center" href="../about-us/about.html">About Us</a>
     <!-- <a class="center" href="./about-us/about.html">About Us</a> -->
@@ -29,16 +28,18 @@
 
     <!-- Results -->
     <!-- Book Favorites -->
-    <div>
+    <div class="row">
+      <div class="col m4">
       <h4>Books</h4>
       <a href="/projects/Night-In/favorite-results/book-favorite.html">
         <img src="/projects/Night-In/assets/theguestlist.jpeg" alt="Your book
         favorites" class="favorite-photos height="300" width="200"/>
       </a>
+      </div>
     </div>
 
     <!-- Movie Favorites -->
-    <div>
+    <div class="col m4">
       <h4>Movies</h4>
       <a href="/projects/Night-In/favorite-results/movie-favorite.html">
         <img src="/projects/Night-In/assets/three_ten_to_yuma_ver2_xlg.jpg"
@@ -51,7 +52,7 @@
     </div>  
 
     
-    <div>
+    <div class="col m4">
       <h4>Games</h4>
       <a href="/projects/Night-In/favorite-results/game-favorite.html">
         <img src="/projects/Night-In/assets/huesandcues.webp" alt="Your board game favorites" class=".favorite-photos" height="300" width="200" 
