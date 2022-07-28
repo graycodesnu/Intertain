@@ -4,6 +4,8 @@ nav {
   border-bottom: solid darkgray;
   padding-bottom: 30px;
   background-color: #3a1772ff;
+  height: 100px;
+  padding-top: 15px;
 }
 
 nav a {
