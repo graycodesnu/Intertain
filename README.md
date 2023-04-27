@@ -19,11 +19,11 @@ Don't know what to do for your night in? Once a user selects a genre, three web 
 
 The project should fulfill the following requirements:
 +Provide users with a fun and engaging way to spend their night in.
-+Offer a variety of entertainment options in the form of a book, movie, and board game.
-+Allow users to select their preferred genre to ensure personalized results.
-+Utilize three web APIs to gather and generate options based on the user's selected genre.
-+Provide users with the ability to favorite their results for future reference.
-+Allow users to refresh their results until they are satisfied with their options.
++ Offer a variety of entertainment options in the form of a book, movie, and board game.
++ Allow users to select their preferred genre to ensure personalized results.
++ Utilize three web APIs to gather and generate options based on the user's selected genre.
++ Provide users with the ability to favorite their results for future reference.
++ Allow users to refresh their results until they are satisfied with their options.
 
 ## Results
 
